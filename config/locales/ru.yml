@@ -1,1 +1,6 @@
 ru:
+  date:
+    order:
+      - :day
+      - :month
+      - :year

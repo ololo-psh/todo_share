@@ -1,0 +1,26 @@
+p#notice
+  = notice
+
+p
+  strong
+    ' Created at:
+  = @todo.created_at
+
+p
+  strong
+    ' Caption:
+  = @todo.caption
+
+p
+  strong
+    ' Description:
+  = @todo.description
+
+p
+  strong
+    ' Deadline:
+  = @todo.deadline
+
+= link_to 'Edit', edit_todo_path(@todo)
+br
+= link_to 'Back', todos_path

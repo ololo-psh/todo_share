@@ -1,0 +1,7 @@
+= simple_form_for @todo do |f|
+
+  = f.input :caption
+  = f.input :description
+  = f.label :deadline
+  = f.input_field :deadline, as: :datetime
+  = f.button :submit
