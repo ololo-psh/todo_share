@@ -14,7 +14,7 @@
 #
 development:
   adapter:  postgresql
-  host:     
+  host:
   encoding: unicode
   database: todo_share_development
   pool:     5
