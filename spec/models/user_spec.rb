@@ -10,4 +10,6 @@ describe User do
     expect(@user.email).to match 'user@example.com'
   end
 
+  it { should have_and_belong_to_many(:assigned_tasks) }
+
 end

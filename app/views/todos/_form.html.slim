@@ -4,4 +4,7 @@
   = f.input :description
   = f.label :deadline
   = f.input_field :deadline, as: :datetime
+  = f.input :shared, as: :boolean
+  = f.association :performers, label_method: :name, value_method: :id, include_blank: false
+
   = f.button :submit

@@ -9,6 +9,7 @@ table.table.table-responsive
     tr
       th Caption
       th Description
+      th Shared
       th Created at
       th Deadline
       th colspan="3"
@@ -18,6 +19,7 @@ table.table.table-responsive
       tr
         td = todo.caption
         td = todo.description
+        td = todo.shared
         td = todo.created_at
         td = todo.deadline
         td = link_to 'Show', todo

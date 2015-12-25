@@ -3,7 +3,7 @@ class TodosController < ApplicationController
   before_action :set_todo, only: [:show, :edit, :update, :destroy]
 
   def index
-    @todos = current_user.todos
+    @todos = current_user.all_todos
   end
 
   def show
@@ -58,6 +58,9 @@ class TodosController < ApplicationController
   end
 
   def todo_params
-    params.require(:todo).permit(:caption, :description, :deadline)
+    params.require(:todo).permit(:caption,
+                                 :description,
+                                 :deadline,
+                                 :shared, performer_ids: [])
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151223061628) do
+ActiveRecord::Schema.define(version: 20151223134216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,11 +21,20 @@ ActiveRecord::Schema.define(version: 20151223061628) do
     t.text     "description"
     t.datetime "deadline"
     t.integer  "creator_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "shared",      default: false
   end
 
   add_index "todos", ["creator_id"], name: "index_todos_on_creator_id", using: :btree
+
+  create_table "todos_users", id: false, force: :cascade do |t|
+    t.integer "todo_id"
+    t.integer "user_id"
+  end
+
+  add_index "todos_users", ["todo_id"], name: "index_todos_users_on_todo_id", using: :btree
+  add_index "todos_users", ["user_id"], name: "index_todos_users_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
